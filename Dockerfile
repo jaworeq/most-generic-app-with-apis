@@ -8,4 +8,4 @@ RUN pwd
 
 FROM openjdk:11.0.1-jdk-slim
 COPY --from=build /home/gradle/build/libs/* file.jar
-ENTRYPOINT ["java", "-jar", "file.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=docker", "file.jar"]
