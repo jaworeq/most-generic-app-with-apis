@@ -14,16 +14,22 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
 @Configuration
+@RequiredArgsConstructor
 public class FirstApiRouter {
 
-//    @Autowired
-//    private final FirstApiHandler firstApiHandler;
+    private final FirstApiHandler firstApiHandler;
     @Bean
-    public RouterFunction<ServerResponse> route(FirstApiHandler firstApiHandler) {
-        return RouterFunctions
-                .route(GET("/hello")
+    public RouterFunction<ServerResponse> firstRoute() {
+        return RouterFunctions.nest(path("/v1"), route()
+                .GET("/hello")
                         .and(accept(MediaType.APPLICATION_JSON)),
-                        firstApiHandler::hello
+                        firstApiHandler::hello,
+                       ops -> ops.tag("Swagger group")
+                       .summary("Swagger summary")
+                       .operationId("API function ID")
+                       //.parameter(parameterBuilder().name("param-name").required(false).description("Param description").implementation(String.class).in(ParameterIn.QUERY).example("example value"))
+                       //.response(responseBuilder().responseCode("200").content(contentBuilder().mediaType.APPLICATION_JSON_VALUE).schema(schemaBuilder().implementation(Long.class))))
+                       //.response(responseBuilder().responseCode("400").description("Bad Request").implementation(ResponseError.class))
                         );
     }
 }
