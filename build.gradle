@@ -51,12 +51,6 @@ dependencyManagement {
 	}
 }
 
-compileJava {
-	options.compilerArgs = [
-			'-Amapstruct.defaultComponentModel=spring'
-	]
-}
-
 bootJar {
 	enabled = true
 
