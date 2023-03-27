@@ -18,10 +18,12 @@ public class FirstApiHandler {
     @Value("${spring.datasource.url}")
     public static String dbUrl;
     private final GenericService genericService;
+
     public Mono<ServerResponse> hello(ServerRequest request) {
         return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
                 .body(Mono.just("Hello, spring! DB URL is: " + dbUrl), String.class);
     }
+
     public Mono<ServerResponse> getAll(ServerRequest request) {
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(genericService.getAll(), Generic.class);
