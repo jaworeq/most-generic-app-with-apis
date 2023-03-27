@@ -33,7 +33,18 @@ public class FirstApiRouter {
                         //.parameter(parameterBuilder().name("param-name").required(false).description("Param description").implementation(String.class).in(ParameterIn.QUERY).example("example value"))
                        //.response(responseBuilder().responseCode("200").content(contentBuilder().mediaType.APPLICATION_JSON_VALUE).schema(schemaBuilder().implementation(Long.class))))
                        //.response(responseBuilder().responseCode("400").description("Bad Request").implementation(ResponseError.class))
-                        ).build()
+                        )
+                .GET("/get-all",
+                        firstApiHandler::getAll,
+                        ops -> ops.tag("Swagger group")
+                                .summary("Swagger summary")
+                                .operationId("Get all rows")
+//                        .and(accept(MediaType.APPLICATION_JSON)),
+
+                        //.parameter(parameterBuilder().name("param-name").required(false).description("Param description").implementation(String.class).in(ParameterIn.QUERY).example("example value"))
+                        //.response(responseBuilder().responseCode("200").content(contentBuilder().mediaType.APPLICATION_JSON_VALUE).schema(schemaBuilder().implementation(Long.class))))
+                        //.response(responseBuilder().responseCode("400").description("Bad Request").implementation(ResponseError.class))
+                ).build()
         );
     }
 }
