@@ -58,7 +58,11 @@ bootJar {
 	enabled = true
 
 	archiveBaseName = "file.jar"
+	from('.') {
+		include  'db/**/*.sql'
+	}
 }
+
 jar {
 	enabled = false
 }
