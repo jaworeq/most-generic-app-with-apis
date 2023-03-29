@@ -1,5 +1,5 @@
-server.port: 8080
-spring.r2dbc.url: r2dbc:postgresql://db:5432/postgres
+server.port: 8081
+spring.r2dbc.url: r2dbc:postgresql://localhost:5432/postgres
 spring.r2dbc.username: postgres
 spring.r2dbc.password: example
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -7,6 +7,6 @@ spring.jpa.hibernate.ddl-auto: none
 spring.jpa.hibernate.show-sql: true
 logging.level.org.flywaydb: DEBUG
 spring.flyway.locations: filesystem:./db
-spring.flyway.url: jdbc:postgresql://db:5432/postgres
+spring.flyway.url: jdbc:postgresql://localhost:5432/postgres
 spring.flyway.user: postgres
 spring.flyway.password: example
