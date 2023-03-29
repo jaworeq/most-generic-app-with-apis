@@ -6,7 +6,7 @@ spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto: none
 spring.jpa.hibernate.show-sql: true
 logging.level.org.flywaydb: DEBUG
-spring.flyway.locations: filesystem:./db
+spring.flyway.locations: classpath:db
 spring.flyway.url: jdbc:postgresql://db:5432/postgres
 spring.flyway.user: postgres
 spring.flyway.password: example
