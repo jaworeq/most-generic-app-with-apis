@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @Component
 @RequiredArgsConstructor
 public class FirstApiHandler {
-    @Value("${spring.datasource.url}")
+    @Value("${spring.r2dbc.url}")
     public static String dbUrl;
     private final GenericService genericService;
 
