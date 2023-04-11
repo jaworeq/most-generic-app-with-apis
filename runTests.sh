@@ -1,3 +1,3 @@
 #!/bin/sh
-docker build -f tests.Dockerfile -t test-run .
+docker build -t test-run --target=test .
 docker run -v /var/run/docker.sock://var/run/docker.sock -it test-run

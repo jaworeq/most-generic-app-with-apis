@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class FirstApiHandler {
     @Value("${spring.r2dbc.url}")
-    public static String dbUrl;
+    private String dbUrl;
     private final GenericService genericService;
 
     public Mono<ServerResponse> hello(ServerRequest request) {
@@ -29,10 +29,3 @@ public class FirstApiHandler {
                 .body(genericService.getAll(), Generic.class);
     }
 }
-
-
-
-/*
-flyway info -locations=filesystem:./db -user=postgres -password=example -url=jdbc:postgresql://localhost:5432/postgres
-
- */
